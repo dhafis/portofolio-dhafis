@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe Portofolio</title>
+    <style>
+      /* --- RESET & VARIABEL DASAR --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section {
+        padding: 80px 0;
+        border-bottom: 2px dashed #a5d6a7;
+      }
+
+      .bg-light {
+        background-color: #f1f8f2;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.2rem;
+        color: #2e7d32;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #81c784;
+        border-radius: 2px;
+      }
+
+      /* --- KOTAK WIREFRAME --- */
+      .wireframe-box {
+        background-color: #e8f5e9;
+        border: 2px dashed #81c784;
+        color: #4caf50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 600;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .wireframe-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+      }
+
+      .wireframe-box:hover img {
+        opacity: 1;
+      }
+
+      /* --- TOMBOL (BUTTONS) --- */
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #4caf50;
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid #4caf50;
+        margin-right: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #388e3c;
+        border-color: #388e3c;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: #2e7d32;
+        border-color: #2e7d32;
+      }
+
+      .btn-outline:hover {
+        background-color: #2e7d32;
+        color: #fff;
+      }
+
+      /* --- NAVIGASI --- */
+      .navbar {
+        background-color: #c8e6c9;
+        border-bottom: 1px solid #a5d6a7;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-img {
+        width: 40px;
+        height: 40px;
+        background-color: #4caf50;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-radius: 8px;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1b5e20;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 25px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #1b5e20;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4caf50;
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #4caf50;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* --- HERO SECTION --- */
+      .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        min-height: 70vh;
+      }
+
+      .hero-content {
+        flex: 1.2;
+      }
+
+      .hero-greeting {
+        color: #4caf50;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 15px;
+        color: #1b5e20;
+      }
+
+      .hero-content h2 {
+        color: #2e7d32;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+
+      .hero-content p {
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        color: #555;
+        max-width: 90%;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 15px;
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-image .wireframe-box {
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+        background-color: #c8e6c9;
+      }
+
+      /* --- TENTANG SAYA --- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-image {
+        height: 400px;
+        border-radius: 12px;
+      }
+
+      .about-text {
+        padding-right: 20px;
+      }
+
+      .about-text p {
+        margin-bottom: 15px;
+        color: #444;
+        font-size: 1.05rem;
+      }
+
+      /* --- KEAHLIAN (SKILLS) --- */
+      .skills-category {
+        margin-bottom: 30px;
+      }
+
+      .skills-category h3 {
+        color: #2e7d32;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+      }
+
+      .skill-item {
+        padding: 15px;
+        border-radius: 8px;
+        background-color: white;
+        border: 1px solid #c8e6c9;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+        font-weight: 600;
+        color: #333;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-3px);
+        border-color: #4caf50;
+      }
+
+      /* --- PROYEK --- */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .project-card {
+        border: 1px solid #e0e0e0;
+        background-color: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 20px rgba(76, 175, 80, 0.1);
+        border-color: #a5d6a7;
+      }
+
+      .project-img {
+        height: 220px;
+        border-bottom: 1px solid #eee;
+        border-radius: 0;
+        border: none;
+      }
+
+      .project-info {
+        padding: 25px;
+      }
+
+      .project-tags {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .tag {
+        font-size: 0.75rem;
+        background-color: #e8f5e9;
+        color: #2e7d32;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      .project-info h3 {
+        margin-bottom: 10px;
+        color: #1b5e20;
+        font-size: 1.3rem;
+      }
+
+      .project-info p {
+        margin-bottom: 20px;
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 10px;
+      }
+
+      /* --- KONTAK --- */
+      .contact-wrapper {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        display: flex;
+        overflow: hidden;
+        border: 1px solid #e8f5e9;
+      }
+
+      .contact-info {
+        flex: 1;
+        background-color: #f1f8f2;
+        padding: 40px;
+        border-right: 1px solid #e8f5e9;
+      }
+
+      .contact-info h3 {
+        color: #1b5e20;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .info-item {
+        margin-bottom: 25px;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .info-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #e8f5e9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2e7d32;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      .info-text h4 {
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .info-text p {
+        color: #666;
+      }
+
+      .contact-form {
+        flex: 1.5;
+        padding: 40px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #444;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #4caf50;
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+      }
+
+      textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      /* --- FOOTER --- */
+      .footer {
+        background-color: #c8e6c9;
+        color: #1b5e20;
+        padding: 40px 0 20px;
+        border-top: 1px solid #a5d6a7;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #a5d6a7;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: rgba(27, 94, 32, 0.1);
+        color: #1b5e20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .social-icon:hover {
+        background-color: #1b5e20;
+        color: white;
+      }
+
+      .copyright {
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none; /* Sembunyikan menu di mobile (bisa diganti dgn hamburger menu nanti) */
+        }
+
+        .hero-container {
+          flex-direction: column-reverse;
+          text-align: center;
+          gap: 30px;
+          padding-top: 40px;
+        }
+
+        .hero-content p {
+          margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .hero-image .wireframe-box {
+          width: 280px;
+          height: 280px;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-wrapper {
+          flex-direction: column;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Menu Navigasi -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <div class="logo-container">
+          <!-- Dummy Logo: Kotak inisial -->
+          <div class="logo-img">PA</div>
+          <div class="logo-text">Portofolio.</div>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Bagian Hero -->
+    <section id="hero" class="section bg-light">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-greeting">Halo, Selamat Datang! 👋</span>
+          <h1>Saya Ikhmal Dhafis Alfiansyah</h1>
+          <h2>Pelajar & Web Enthusiast</h2>
+          <p>Saya membangun antarmuka digital yang bersih, responsif, dan ramah pengguna. Berfokus pada pengalaman interaktif yang mengubah ide menjadi kenyataan.</p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn">Lihat Karya Saya</a>
+            <a href="#contact" class="btn btn-outline">Mari Berdiskusi</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Dummy Foto Profil -->
+          <div class="wireframe-box">
+            <img src="WhatsApp Image 2026-08-04 at 09.57.56.jpeg" alt="Foto Profil Dummy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Tentang Saya -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-grid">
+          <div class="about-image wireframe-box">
+            <img src="WhatsApp Image 2026-08-04 at 09.57.56 (1).jpeg" alt="Foto Ikhmal" />
+          </div>
+          <div class="about-text">
+            <p>Halo! Saya <strong>Ikhmal Dhafis Alfiansyah</strong>, seorang pelajar yang bersemangat dalam dunia teknologi dan pengembangan web. Berikut adalah sedikit informasi tentang profil saya:</p>
+
+            <!-- Kotak Info Pribadi -->
+            <div style="margin: 25px 0; background-color: #e8f5e9; padding: 20px; border-radius: 8px; border-left: 5px solid #4caf50">
+              <ul style="list-style-type: none; padding: 0; margin: 0; color: #333; font-size: 1.05rem">
+                <li style="margin-bottom: 10px"><strong>Nama Lengkap :</strong> Ikhmal Dhafis Alfiansyah</li>
+                <li style="margin-bottom: 10px"><strong>Kelas / Absen :</strong> XII-6 / 11</li>
+                <li style="margin-bottom: 10px"><strong>Umur :</strong> 17 Tahun</li>
+                <li style="margin-bottom: 10px"><strong>Tanggal Lahir :</strong> 7 Mei 2009</li>
+                <li style="margin-bottom: 0"><strong>Hobi :</strong> Volly 🏐</li>
+              </ul>
+            </div>
+
+            <p>Saya percaya bahwa kode yang baik harus didukung oleh desain yang intuitif. Tujuan saya adalah terus belajar dan menjembatani kesenjangan antara estetika dan fungsionalitas dalam setiap karya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Keahlian -->
+    <section id="skills" class="section bg-light">
+      <div class="container">
+        <h2 class="section-title">Keahlian Olahraga</h2>
+
+        <div class="skills-category">
+          <div class="skills-grid">
+            <div class="skill-item wireframe-box">Volly 🏐</div>
+            <div class="skill-item wireframe-box">Renang 🏊‍♂️</div>
+            <div class="skill-item wireframe-box">Lari 🏃‍♂️</div>
+            <div class="skill-item wireframe-box">Bersepeda 🚴‍♂️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Proyek -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Proyek Pilihan</h2>
+        <div class="project-grid">
+          <!-- Kartu Proyek 1 -->
+          <div class="project-card">
+            <div class="project-img wireframe-box">
+              <img src="_102539689_048182298-1.jpg.webp" alt="Proyek 1" />
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Tailwind</span>
+              </div>
+              <h3>E-Commerce Dashboard</h3>
+              <p>Aplikasi dashboard interaktif untuk mengelola inventaris toko online, melacak penjualan harian, dan menganalisis data pengguna dengan grafik real-time.</p>
+              <div class="project-links">
+                <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem">Demo Live</a>
+                <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem; border-color: #ccc; color: #666">Kode (GitHub)</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kartu Proyek 2 -->
+          <div class="project-card">
+            <div class="project-img wireframe-box">
+              <img src="FOTO2.png" alt="Proyek 2" />
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JS</span>
+              </div>
+              <h3>Website Profil Perusahaan</h3>
+              <p>Desain ulang landing page untuk agen pemasaran lokal, berfokus pada peningkatan konversi, aksesibilitas, dan performa pemuatan yang cepat.</p>
+              <div class="project-links">
+                <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem">Demo Live</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kartu Proyek 3 -->
+          <div class="project-card">
+            <div class="project-img wireframe-box">
+              <img src="FOTO P.jpeg" alt="Proyek 3" />
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UI/UX</span>
+              </div>
+              <h3>Aplikasi Manajemen Tugas</h3>
+              <p>Prototipe resolusi tinggi untuk aplikasi seluler manajemen tugas kolaboratif. Mencakup alur pendaftaran, pembuatan tugas, dan tampilan kalender.</p>
+              <div class="project-links">
+                <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem">Lihat Studi Kasus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Kontak -->
+    <section id="contact" class="section bg-light">
+      <div class="container">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-wrapper">
+          <!-- Info Kontak -->
+          <div class="contact-info">
+            <h3>Mari Berkolaborasi</h3>
+            <p style="margin-bottom: 30px; color: #555">Apakah Anda memiliki pertanyaan atau ingin memulai proyek bersama? Jangan ragu untuk menghubungi saya melalui detail di bawah ini.</p>
+
+            <div class="info-item">
+              <div class="info-icon">✉</div>
+              <div class="info-text">
+                <h4>Email</h4>
+                <p>ikhmal@contoh.com</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div class="info-text">
+                <h4>Lokasi</h4>
+                <p>Jakarta, Indonesia (Remote)</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">💼</div>
+              <div class="info-text">
+                <h4>Ketersediaan</h4>
+                <p>Terbuka untuk pekerjaan Freelance</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Kontak -->
+          <div class="contact-form">
+            <form
+              onsubmit="
+                event.preventDefault();
+                alert('Ini adalah simulasi. Form tidak benar-benar dikirim.');
+              "
+            >
+              <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input type="email" id="email" class="form-control" placeholder="email@contoh.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subjek</label>
+                <input type="text" id="subject" class="form-control" placeholder="Tujuan pesan Anda" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" class="form-control" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn" style="width: 100%">Kirim Pesan Sekarang</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo-container">
+            <div class="logo-img" style="width: 30px; height: 30px; font-size: 1rem">PA</div>
+            <div class="logo-text" style="font-size: 1.2rem">Portofolio.</div>
+          </div>
+
+          <div class="social-links">
+            <!-- Icon Placeholder -->
+            <a href="#" class="social-icon" title="LinkedIn">in</a>
+            <a href="#" class="social-icon" title="GitHub">gh</a>
+            <a href="#" class="social-icon" title="Instagram">ig</a>
+            <a href="#" class="social-icon" title="Twitter">tw</a>
+          </div>
+        </div>
+        <p class="copyright">&copy; 2026 Ikhmal Dhafis Alfiansyah. Didesain & Dibangun dengan ❤️</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  margin: 20px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #003366;
+}
+
+h2 {
+  color: #00509e;
+}
+
+.foto-profil {
+  display: block;
+  margin: 20px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid #00509e;
+  object-fit: cover;
+}
+
+table {
+  width: 60%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+table,
+th,
+td {
+  border: 1px solid #333;
+}
+
+th {
+  background-color: #00509e;
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+ul {
+  background-color: white;
+  padding: 15px 35px;
+  width: 50%;
+}
+
+form {
+  background-color: white;
+  padding: 20px;
+  width: 350px;
+  border-radius: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #00509e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003366;
+}
